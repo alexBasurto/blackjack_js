@@ -1,4 +1,3 @@
-import { fileURLToPath } from "url";
 
 class Carta {
     constructor(palo, valor) {
@@ -18,13 +17,3 @@ class Carta {
 
 export default Carta;
 
-
-
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-    let carta = new Carta("corazones", "A");
-    console.log(carta.getValor());
-    carta = new Carta("corazones", "J");
-    console.log(carta.getValor());
-    carta = new Carta("corazones", "2");
-    console.log(carta.getValor());
-}

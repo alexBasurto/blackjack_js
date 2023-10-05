@@ -156,25 +156,25 @@ En este ejemplo, se crea una baraja de cartas `baraja` y un jugador `jugador` ut
 
 ## Ejercicio 5
 
-En este ejercicio se define la clase `Juego`, que representa un juego de Blackjack completo. El juego tiene una baraja de cartas, un jugador y un crupier. Además, tiene métodos para repartir las cartas, jugar el juego y mostrar el resultado.
+En este ejercicio se define la clase `Juego`, que representa un juego de Blackjack completo. El juego tiene una baraja de cartas, un jugador y un crupier.
 
-En el constructor de la clase `Juego`, se debe inicializar la propiedad `baraja` como un objeto de la clase `Baraja`, mezclar la baraja, inicializar la propiedad `jugador` como un objeto de la clase `Jugador`, inicializar la propiedad `crupier` como otro objeto de la clase `Jugador`, y repartir dos cartas al jugador y dos cartas al crupier.
+Dada la complejidad del juego, algunos de los métodos estan ya implementados. Los métodos a implementar son los siguientes:
+- sacarCarta
 
-El método `mostrarManos` debe mostrar en pantalla las cartas del jugador y del crupier. Si el parámetro `oculto` es `true`, se debe ocultar la segunda carta del crupier.
+    Método para sacar una carta y agregarla a la mano de un jugador. Si el jugador se ha plantado no se le debe agregar la carta. Si el parámetro `oculto` es `true`, la carta se debe ocultar.
 
-El método `jugar` es el método principal del juego y se encarga de pedir al jugador si quiere pedir una carta o plantarse, repartir cartas si el jugador pide, y pasar el turno al crupier una vez que el jugador se planta. Luego, el método se encarga de ejecutar la estrategia del crupier y, finalmente, muestra las manos del jugador y del crupier, y determina el resultado del juego.
+- jugar
 
-En el bucle while que se encarga de gestionar el turno del jugador, se debe mostrar en pantalla las cartas del jugador y del crupier, preguntar al jugador si quiere pedir otra carta o plantarse, y si el jugador pide otra carta, se reparte una carta al jugador. Si el jugador se planta, se cambia la propiedad `plantado` del jugador a `true`.
+    Método que comprueba si el jugador ha terminado la partida. Si el jugador se ha plantado y no se ha pasado de 21, el crupier juega su partida, si se ha pasado de 21, termina la partida.
 
-En el bucle while que se encarga de gestionar el turno del crupier, se debe crear una estrategia que determine si el crupier pide otra carta o se planta. Si el crupier pide otra carta, se reparte una carta al crupier. Si el crupier se planta, se cambia la propiedad `plantado` del crupier a `true`.
+- jugarCrupier
 
-Finalmente, el método debe mostrar la mano final del jugador y del crupier y determinar el resultado del juego en función de las reglas del Blackjack.
+    Método que juega una partida del crupier.
+     El crupier debe sacar cartas hasta que su puntuación sea mayor o igual a 17. 
+     Las cartas no se deben ocultar más, y tiene que esperar un segundo entre cada carta que saca. Una vez que el crupier se ha plantado, se muestra el ganador de la partida.
 
-A continuación se muestra un ejemplo del uso de la clase `Juego`:
+- jugadorGana
 
-```js
-const juego = new Juego();
-await juego.jugar();
-```
+    Método que comprueba si uno de los  dos jugadores que se le pasan como parámetro ha ganado la partida. Ganará el jugador que mayor puntuación tenga, siempre que no se haya pasado de 21. Si los dos jugadores se han pasado de 21, gana el crupier. Si los dos jugadores tienen la misma puntuación, gana el crupier.
 
-En este ejemplo, se crea un objeto `juego` de la clase `Juego`. Luego, se llama al método `jugar()` del objeto `juego`, que inicia el juego completo. El `await` es utilizado porque el método `jugar()` utiliza la función `prompt()` de la biblioteca `prompts` para obtener la respuesta del jugador.
+Una vez completado el último ejercicio, se puede jugar al juego creando un servidor, por ejemplo con Live Server de visual studio code.

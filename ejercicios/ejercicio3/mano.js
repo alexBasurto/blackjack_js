@@ -29,15 +29,3 @@ class Mano {
   }
 
   export default Mano;
-
-    if (process.argv[1] === fileURLToPath(import.meta.url)) {
-        let baraja = new Baraja();
-        let mano = new Mano();
-        baraja.mezclar();
-        for (let i = 0; i < 2; i++) {
-            let carta = baraja.sacarCarta();
-            mano.agregarCarta(carta);
-        }
-        console.log(mano.cartas);
-    }
-  

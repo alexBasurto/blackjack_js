@@ -30,10 +30,3 @@ class Baraja {
   }
 
     export default Baraja;
-  
-    if (process.argv[1] === fileURLToPath(import.meta.url)) {
-        let baraja = new Baraja();
-        baraja.mezclar();
-        console.log(baraja.cartas);
-        console.log(baraja.sacarCarta());
-    }

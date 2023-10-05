@@ -36,20 +36,3 @@ class Jugador {
 
     export default Jugador;
 
-    if (process.argv[1] === fileURLToPath(import.meta.url)) {
-        let baraja = new Baraja();
-        let jugador = new Jugador();
-        baraja.mezclar();
-        for (let i = 0; i < 2; i++) {
-            let carta = baraja.sacarCarta();
-            jugador.agregarCarta(carta);
-        }
-        console.log(jugador.mostrarMano());
-
-        let crupier = new Jugador();
-        for (let i = 0; i < 2; i++) {
-            let carta = baraja.sacarCarta();
-            crupier.agregarCarta(carta);
-        }
-        console.log(crupier.mostrarMano(true));
-    }
