@@ -11,7 +11,7 @@ class Carta {
     } else if (this.valor === 'A') {
       return 11;
     } else {
-      return this.valor;
+      return parseInt(this.valor);
     }
   }
 

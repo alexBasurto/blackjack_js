@@ -1,6 +1,6 @@
 /* import { fileURLToPath } from "url"; */
 import Mano from "../ejercicio3/mano.js"
-import Baraja from "../ejercicio2/baraja.js";
+// import Baraja from "../ejercicio2/baraja.js";
 
 class Jugador {
   constructor() {
@@ -14,25 +14,22 @@ class Jugador {
       this.plantado = true;
     }
   }
-  
   plantarse() {
     this.plantado = true;
   }
 
   mostrarMano(oculto = false) {
-    let cartasMano = this.mano.cartas;
-    let answer = "";
-    if (cartasMano.length === 0) {
-      return 'no tiene cartas';
-    }
-      for (let i = 0; i < cartasMano.length; i++){
-        if (oculto === false || i === 0) {
-          answer += `${cartasMano[i].valor} de ${cartasMano[i].palo}, `;
-        } else {
-          answer += '?, '
-        }
+    let cartasMano = this.mano.cartas.map((card, index) => {
+      let texto = "";
+      if (index !== 0 && oculto) {
+        texto = "?";
+      } else {
+        texto = `${card.valor} de ${card.palo}`;
       }
-      return answer;
+      return texto;
+    });
+    return cartasMano.join(", ")
+  
     /*
     * TODO: Devolver un string con las cartas de la mano
     * Si oculto es true, mostrar sólo la primera carta, el resto mostrarlas como "?"
