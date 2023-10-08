@@ -1,19 +1,27 @@
 
 class Carta {
-    constructor(palo, valor) {
-        // TODO: Guardar palo y valor en propiedades
-    }
-  
-    getValor() {
-        /* 
-        * TODO: Devolver el valor de la carta
-        * 2-10 valen su valor
-        * J, Q, K valen 10
-        * A vale 11 
-        */
-       return 0;
+  constructor(palo, valor) {
+    this.palo = palo;
+    this.valor = valor;
+  }
+
+  getValor() {
+    if (this.valor === 'J' || this.valor === 'Q' || this.valor === 'K') {
+      return 10;
+    } else if (this.valor === 'A') {
+      return 11;
+    } else {
+      return this.valor;
     }
   }
 
-export default Carta;
+  ocultar() {
+    this.carta.classList.add("oculto");
+  }
 
+  mostrar() {
+    this.carta.classList.remove("oculto");
+  }
+}
+
+export default Carta;
